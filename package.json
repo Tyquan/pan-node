@@ -1,0 +1,27 @@
+{
+  "name": "pan-node",
+  "version": "0.1.2",
+  "description": "A Statistics and Probability library for Data Analysis",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -u bdd -R spec -t 500 --recursive",
+    "watch": "mocha -u bdd -R spec -t 500 --recursive --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Tyquan/pan-node.git"
+  },
+  "keywords": [
+    "statistics",
+    "data analysis"
+  ],
+  "author": "Tyquan Reddick <tjreddick@gmail.com> (http://www.reddicktech.tech)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tyquan/pan-node/issues"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  }
+}
