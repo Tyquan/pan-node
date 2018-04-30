@@ -1,4 +1,4 @@
-class Pan {
+export default class Pan {
     mean(a){
         if (a.length == 0){
             return 0;
@@ -6,8 +6,8 @@ class Pan {
         else if(a.length == 1) {
             return a;
         }else {
-            var sum = 0;
-            for (var i = 0; i < a.length; i++) {
+            let sum = 0;
+            for (let i = 0; i < a.length; i++) {
                 sum += a[i];
             }
             sum = sum / a.length;
@@ -17,7 +17,7 @@ class Pan {
 
     // find the median average of a population or sample
     median(array){
-        var sortedArray = array.sort();
+        let sortedArray = array.sort();
         if (sortedArray.length % 2 == 0) {
             return 'sorted array is even ' + array.length;
         } else {
@@ -28,11 +28,11 @@ class Pan {
 
     // mode of a population or sample
     mode(array){
-        var count = 1;
-        var temp = 0;
-        var tempCount;
-        var popular = array[0];
-        for (var i = 0; i < array.length - 1; i++){
+        let count = 1;
+        let temp = 0;
+        let tempCount;
+        let popular = array[0];
+        for (let i = 0; i < array.length - 1; i++){
             temp = array[i];
             tempCount = 0;
             for (var j = 1; j < array.length; j++) {
@@ -50,14 +50,14 @@ class Pan {
 
     // variance of a population
     popVariance(array){
-        var temp = [];
-        var reason = 0;
-        var result;
-        var mew = this.mean(array);
-        for (var i = 0; i < array.length; i++) {
+        let temp = [];
+        let reason = 0;
+        let result;
+        let mew = this.mean(array);
+        for (let i = 0; i < array.length; i++) {
             temp.push(Math.pow(array[i] - mew, 2));
         }
-        for (var j = 0; j < temp.length; j++) {
+        for (let j = 0; j < temp.length; j++) {
             reason += temp[j];
         }
         result = reason / array.length;
@@ -66,14 +66,14 @@ class Pan {
 
     // find the variance of a sample
     sampleVariance(array){
-        var temp = [];
-        var reason = 0;
-        var result;
+        let temp = [];
+        let reason = 0;
+        let result;
         var mew = this.mean(array);
-        for (var i = 0; i < array.length; i++) {
+        for (let i = 0; i < array.length; i++) {
             temp.push(Math.pow(array[i] - mew, 2));
         }
-        for (var j = 0; j < temp.length; j++) {
+        for (let j = 0; j < temp.length; j++) {
             reason += temp[j];
         }
         result = reason / array.length - 1;
@@ -83,18 +83,7 @@ class Pan {
     // standard deviation of a sample or population
     // input must be a popVariance or sampleVariance
     sDeviation(input){
-        var result = Math.sqrt(input);
+        let result = Math.sqrt(input);
         return result;
     }
 }
-
-// module.exports = Pan;
-
-var list = [1,2,3,4,5,1,6];
-
-var pan = new Pan();
-var total = pan.sampleVariance(list);
-var sdev = pan.sDeviation(total);
-
-console.log(total);
-console.log(sdev);
