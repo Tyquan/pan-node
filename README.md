@@ -20,9 +20,9 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 * 0.1.0 Initial release
 * 0.2.0 Bug Fixes And Test update
 
-## Usage
+## Methods Usage
 
-### .mean (method)
+### Pan.mean (method)
 
 > A method that sums all elements of an array and divids the sum by the arrays length
 
@@ -31,7 +31,7 @@ Add unit tests for any new or changed functionality. Lint and test your code.
     // mean average of the myArray population
     pa.mean(myArray);
     
-### .median (method)
+### Pan.median (method)
 
 > Finds the middle integer in an array (Only for odd integers)
 
@@ -39,7 +39,7 @@ Add unit tests for any new or changed functionality. Lint and test your code.
     var myArray2 = [10,9,8,7,6,5,4,3,2,1];
     console.log(pa.median(myArray2));
     
-### .mode (method)
+### Pan.mode (method)
 
 > Finds the most common integer in an array
 
@@ -47,7 +47,7 @@ Add unit tests for any new or changed functionality. Lint and test your code.
     var myArray3 = [10,9,8,7,6,5,5,5,4,4,3,2,1];
     console.log(pa.mode(myArray3));
     
-### .popVariance (method)
+### Pan.popVariance (method)
 
 > variance of a population array
 
