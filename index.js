@@ -66,38 +66,33 @@ class Pan {
         result = reason / array.length;
         return result;
     }
+
+    // get the sample variance of an array
+    samVariance(array){
+        let temp = [];
+        let count = 0;
+        // get the mean average of an array
+        let mew = this.mean(array);
+        // loop through each item in the array
+        for (let i = 0; i < array.length; i++){
+            // and push the calculated () result to the array for each item
+            temp.push(Math.pow(array[i] - mew, 2));
+        }
+        // loop through each item
+        for (let j = 0; j < temp.length; j++) {
+            // and add its total to the count
+            count += temp[j];
+        }
+        // let the result eqaul to the count divided by the length of the array argument
+        let result = count / array.length;
+        return result;
+    }
+
+    // get the Standard Deviation odf an array
+    // the square root of a variance
+    statDeviation(array){
+        return Math.sqrt(this.samVariance(array));
+    }
 }
 
 module.exports = Pan;
-
-
-
-
-
-
-
-// // find the variance of a sample
-// sampleVariance(array){
-//     let temp = [];
-//     let reason = 0;
-//     let result;
-//     var mew = this.mean(array);
-//     for (let i = 0; i < array.length; i++) {
-//         temp.push(Math.pow(array[i] - mew, 2));
-//     }
-//     for (let j = 0; j < temp.length; j++) {
-//         reason += temp[j];
-//     }
-//     result = reason / array.length - 1;
-//     return result;
-// }
-
-// // standard deviation of a sample or population
-// // input must be a popVariance or sampleVariance
-// sDeviation(input){
-//     let result = Math.sqrt(input);
-//     return result;
-// }
-
-// module.exports.mean = mean;
-// module.exports.median = median;

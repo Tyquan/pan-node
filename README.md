@@ -33,7 +33,7 @@ Add unit tests for any new or changed functionality. Lint and test your code.
     
 ### Pan.median (method)
 
-> Finds the middle integer in an array (Only for odd integers)
+> Finds the middle integer in an array (Only for odd integers). If an arrays length i even then the method will just return the length of tha array
 
     var pa = new Pan();
     var myArray2 = [10,9,8,7,6,5,4,3,2,1];
@@ -55,15 +55,15 @@ Add unit tests for any new or changed functionality. Lint and test your code.
     var myArray4 = [0,0,5,5];
     pa.popVariance(myArray4);
     
-<!-- ### .sampleVariance (method)
+### .sampleVariance (method)
 
-> variance of a sample array
+> Get the variance of a sample array
 
     var pa = new Pan();
     var myArray5 = [1,2,3,8,7];
     pa.sampleVariance(myArray5);
     
-### .sDeviation (method)
+<!-- ### .sDeviation (method)
 
 > Standard deviation of a sample or population
     
