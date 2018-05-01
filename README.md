@@ -9,7 +9,7 @@ pan-node
   
 ## Tests
 
-  npm test
+  npm run test
   
 ## Contributing
 
@@ -18,6 +18,7 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 ## Release History
 
 * 0.1.0 Initial release
+* 0.2.0 Bug Fixes And Test update
 
 ## Usage
 
@@ -54,7 +55,7 @@ Add unit tests for any new or changed functionality. Lint and test your code.
     var myArray4 = [0,0,5,5];
     pa.popVariance(myArray4);
     
-### .sampleVariance (method)
+<!-- ### .sampleVariance (method)
 
 > variance of a sample array
 
@@ -81,6 +82,6 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 
     var pa = new Pan();
     var myArray7 = [1,2,3,8,7];
-    console.log(pa.add(myArray7));
+    console.log(pa.add(myArray7)); -->
 
     
