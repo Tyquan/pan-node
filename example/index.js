@@ -1,12 +1,16 @@
 var Pan = require("../index");
 
+console.log(Pan);
+
 var pa = new Pan();
 
 var arra = [1, 2, 3];
 var arra2 = [4, 5, 6];
 var arra3 = [];
 
-console.log(pa.addV(arra3, arra, arra2));
+console.log(pa.mean(arra2));
+
+//console.log(Pan.addV(arra3, arra, arra2));
 
 // var pa = new Pan();
 
