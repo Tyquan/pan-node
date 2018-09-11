@@ -25,6 +25,12 @@ describe('Pan Class', () => {
 	it('should be an object', () => {
 		assert.isObject(pa);
 	});
+	it('should add corresponding elements', () => {
+		assert.equal(pa.add(popArray1, samArray1), [2,2,8,8]);
+	});
+	it('should subract corresponding elements', () => {
+		assert.equal(pa.subtract(popArray1, samArray1), [-2,-2,2,2]);
+	});
 	// find the average number in an array
 	it('should run the Mean method succesfully', () => {
 		assert.equal(pa.mean(arra), 2);

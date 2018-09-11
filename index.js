@@ -1,28 +1,49 @@
+const math = require('mathjs');
+
 class Pan {
-    add(vector1, vector2, next) {
+    add(vector1, vector2) {
         /* Adds corresponding elements */
         let count = [];
         for (let i = 0; i < vector1.length; i++) {
             let result = vector1[i] + vector2[i];
             count.push(result);
         }
-        next(count);
+        return count;
+    }
+
+    subtract(vector1, vector2) {
+        /* Subtracts corresponding elements */
+        let count = [];
+        for (let i = 0; i < vector1.length; i++) {
+            let result = vector1[i] - vector2[i];
+            count.push(result);
+        }
+        return count;
+    }
+
+    dot(v,w) {
+        return math.dot(v, w);
+    }
+
+    sumOfSquares(v) {
+        /* square the array then sum the same array */
+        return this.dot(v,v);
     }
 
     // find the average number in an array
-    mean(a, next){
+    mean(a){
         if (a.length == 0){
-            next(0);
+            return 0;
         } 
         else if(a.length == 1) {
-            next(a);
+            return a;
         }else {
             let sum = 0;
             for (let i = 0; i < a.length; i++) {
                 sum += a[i];
             }
             sum = sum / a.length;
-            next(sum);
+            return sum;
         }
     }
 
@@ -34,7 +55,7 @@ class Pan {
             next(array.length);
         } else {
             var middle = Math.round(sortedArray.length / 2);
-            next(middle);
+            return middle;
         }
     }
 
@@ -58,11 +79,11 @@ class Pan {
                 }
             }
         }
-        next(popular);
+        return popular;
     }
 
     // variance of a population
-    popVariance(array, next){
+    popVariance(array){
         let temp = [];
         let reason = 0;
         let result;
@@ -74,11 +95,11 @@ class Pan {
             reason += temp[j];
         }
         result = reason / array.length;
-        next(result);
+        return result;
     }
 
     // get the sample variance of an array
-    samVariance(arra, next){
+    samVariance(array){
         let temp = [];
         let count = 0;
         // get the mean average of an array
@@ -95,13 +116,34 @@ class Pan {
         }
         // let the result eqaul to the count divided by the length of the array argument
         let result = count / array.length;
-        next(result);
+        return result;
     }
 
     // get the Standard Deviation odf an array
     // the square root of a variance
     statDeviation(array, next){
-       next(Math.sqrt(this.samVariance(array)));
+       return Math.sqrt(this.samVariance(array));
+    }
+
+    multiplyBy(scalar, vector) {
+        /* multiply a vector by a scalar */
+        let count = [];
+        for (let i = 0; i < vector.length; i++) {
+            count.push(scalar * vector[i]);
+        }
+        return count;
+    }
+
+    magnitude(v) {
+        return Math.sqrt(this.sumOfSquares(v));
+    }
+
+    squaredDistance(v, w){
+        return this.sumOfSquares(this.subtract(v, w));
+    }
+
+    distance(v, w){
+        return Math.sqrt(this.squaredDistance(v, w));
     }
 }
 
