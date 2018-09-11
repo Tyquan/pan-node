@@ -1,18 +1,28 @@
 class Pan {
+    add(vector1, vector2, next) {
+        /* Adds corresponding elements */
+        let count = [];
+        for (let i = 0; i < vector1.length; i++) {
+            let result = vector1[i] + vector2[i];
+            count.push(result);
+        }
+        next(count);
+    }
+
     // find the average number in an array
-    mean(a){
+    mean(a, next){
         if (a.length == 0){
-            return 0;
+            next(0);
         } 
         else if(a.length == 1) {
-            return a;
+            next(a);
         }else {
             let sum = 0;
             for (let i = 0; i < a.length; i++) {
                 sum += a[i];
             }
             sum = sum / a.length;
-            return sum;
+            next(sum);
         }
     }
 
@@ -21,16 +31,16 @@ class Pan {
     median(array){
         let sortedArray = array.sort();
         if (sortedArray.length % 2 == 0) {
-            return array.length;
+            next(array.length);
         } else {
             var middle = Math.round(sortedArray.length / 2);
-            return middle;
+            next(middle);
         }
     }
 
     // mode of a population or sample
     // the most listed element in an array
-    mode(array){
+    mode(array, next){
         let count = 1;
         let temp = 0;
         let tempCount;
@@ -48,11 +58,11 @@ class Pan {
                 }
             }
         }
-        return popular;
+        next(popular);
     }
 
     // variance of a population
-    popVariance(array){
+    popVariance(array, next){
         let temp = [];
         let reason = 0;
         let result;
@@ -64,11 +74,11 @@ class Pan {
             reason += temp[j];
         }
         result = reason / array.length;
-        return result;
+        next(result);
     }
 
     // get the sample variance of an array
-    samVariance(array){
+    samVariance(arra, next){
         let temp = [];
         let count = 0;
         // get the mean average of an array
@@ -85,13 +95,13 @@ class Pan {
         }
         // let the result eqaul to the count divided by the length of the array argument
         let result = count / array.length;
-        return result;
+        next(result);
     }
 
     // get the Standard Deviation odf an array
     // the square root of a variance
-    statDeviation(array){
-        return Math.sqrt(this.samVariance(array));
+    statDeviation(array, next){
+       next(Math.sqrt(this.samVariance(array)));
     }
 }
 
