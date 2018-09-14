@@ -4,8 +4,12 @@ var Pan = require("../index");
 
 var pa = new Pan();
 
-var arra = [1, 2, 3];
-var arra2 = [4, 5, 6];
+var arra = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+var arra2 = [[4, 5, 6],
+			[7, 8, 9]];
 var arra3 = []; 
 
-console.log(pa.distance(arra, arra2));
+//console.log(pa.getColumn(arra, 2));
+
+console.log(pa.variance(arra));

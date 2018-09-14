@@ -1,37 +1,10 @@
 const math = require('mathjs');
 
 class Pan {
-    add(vector1, vector2) {
-        /* Adds corresponding elements */
-        let count = [];
-        for (let i = 0; i < vector1.length; i++) {
-            let result = vector1[i] + vector2[i];
-            count.push(result);
-        }
-        return count;
-    }
+    /* Statistics */
 
-    subtract(vector1, vector2) {
-        /* Subtracts corresponding elements */
-        let count = [];
-        for (let i = 0; i < vector1.length; i++) {
-            let result = vector1[i] - vector2[i];
-            count.push(result);
-        }
-        return count;
-    }
-
-    dot(v,w) {
-        return math.dot(v, w);
-    }
-
-    sumOfSquares(v) {
-        /* square the array then sum the same array */
-        return this.dot(v,v);
-    }
-
-    // find the average number in an array
     mean(a){
+        /* find the average number in an array */
         if (a.length == 0){
             return 0;
         } 
@@ -47,9 +20,9 @@ class Pan {
         }
     }
 
-    // median average of a population or sample
-    // The middle number in an array
     median(array){
+        /* median average of a population or sample
+        The middle number in an array */
         let sortedArray = array.sort();
         if (sortedArray.length % 2 == 0) {
             next(array.length);
@@ -119,19 +92,85 @@ class Pan {
         return result;
     }
 
-    // get the Standard Deviation odf an array
-    // the square root of a variance
-    statDeviation(array, next){
-       return Math.sqrt(this.samVariance(array));
+    standardDeviation(array){
+        /* get the Standard Deviation odf an array
+        the square root of a variance */
+       return Math.sqrt(this.variance(array));
     }
 
-    multiplyBy(scalar, vector) {
-        /* multiply a vector by a scalar */
+    variance(array){
+        let n = array.length;
+        let deviations = this.deMean(array);
+        return this.sumOfSquares(deviations) / (n - 1);
+    }
+
+    coVariance(array, y) {
+        /* Measures how 2 variables vary */
+        let n = array.length;
+        return this.dot(this.deMean(array), this.deMean(y)) / (n - 1);
+    }
+
+    correlation(array, y) {
+        let standDeviationX = this.standardDeviation(array);
+        let standDeviationY = this.standardDeviation(y);
+        if (standDeviationX > 0 && standDeviationY > 0) {
+            return this.coVariance(array, y) / standDeviationX / standDeviationY;
+        } else {
+            // if theres no variation, the correlation is 0
+            return 0;
+        }
+    }
+
+    /* Linear Algebra */
+
+    getShape(matrix){
+        /* get the rows and columns of a mtrix ([[1,2,3], [4,5,6]]) */
+        let num_rows = matrix.length;
+        let num_cols = matrix[0].length;
+        return [num_rows, num_cols];
+    }
+
+    getRow(matrix, row) {
+        /* get a specific row of a matrix */
+        return matrix[row];
+    }
+
+    getColumn(matrix, column) {
+        /* get a specific column of a matrix */
+        let wilt = [];
+        for (let i = 0; i < matrix.length; i++) {
+            wilt.push(matrix[i][column]);
+        }
+        return wilt;
+    }
+
+    add(vector1, vector2) {
+        /* Adds corresponding elements */
         let count = [];
-        for (let i = 0; i < vector.length; i++) {
-            count.push(scalar * vector[i]);
+        for (let i = 0; i < vector1.length; i++) {
+            let result = vector1[i] + vector2[i];
+            count.push(result);
         }
         return count;
+    }
+
+    subtract(vector1, vector2) {
+        /* Subtracts corresponding elements */
+        let count = [];
+        for (let i = 0; i < vector1.length; i++) {
+            let result = vector1[i] - vector2[i];
+            count.push(result);
+        }
+        return count;
+    }
+
+    dot(v,w) {
+        return math.dot(v, w);
+    }
+
+    sumOfSquares(v) {
+        /* square the array then sum the same array */
+        return this.dot(v,v);
     }
 
     magnitude(v) {
@@ -145,6 +184,30 @@ class Pan {
     distance(v, w){
         return Math.sqrt(this.squaredDistance(v, w));
     }
+
+    multiplyBy(scalar, vector) {
+        /* multiply a vector by a scalar */
+        let count = [];
+        for (let i = 0; i < vector.length; i++) {
+            count.push(scalar * vector[i]);
+        }
+        return count;
+    }
+
+    dataRange(array) {
+        /* get the range of an array */
+        return Math.max(...array) - Math.min(...array);
+    }
+
+    deMean(array) {
+        let xBar = this.mean(array);
+        let count = [];
+        for (let i = 0; i < array.length; i++) {
+            count.push(array[i] - xBar);
+        }
+        return count;
+    }
+
 }
 
 module.exports = Pan;
