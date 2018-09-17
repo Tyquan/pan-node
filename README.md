@@ -19,79 +19,48 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 
 * 0.1.0 Initial release
 * 0.2.0 Bug Fixes And Test update
+* 0.3.0 Updated Statistics and Linear Algebra library
 
-## Methods Usage
+## Documentation
 
-### Pan.mean (method)
+### Usage Example (pan-node.mean)
 
-> A method that sums all elements of an array and divids the sum by the arrays length
-
-    let pa = new Pan();
-    let myArray = [1,2,3,4,5,6,7];
-    // mean average of the myArray population
-    pa.mean(myArray, (result) => {
-        console.log(result);
+    var Pan = require("pan-node");
+    var arrays = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    Pan.mean(arrays, (data) => {
+        console.log(data);
     });
     
-### Pan.median (method)
+### Statistics
 
-> Finds the middle integer in an array (Only for odd integers). If an arrays length i even then the method will just return the length of tha array
+    pan-node.mean;
+    pan-node.median;
+    pan-node.mode;
+    pan-node.popVariance;
+    pan-node.samVariance;
+    pan-node.standardDeviation;
+    pan-node.variance;
+    pan-node.coVariance;
+    pan-node.correlation;
 
-    let pa = new Pan();
-    let myArray2 = [10,9,8,7,6,5,4,3,2,1];
-    pa.median(myArray2, (result) => {
-        console.log(result);
-    });
-    
-### Pan.mode (method)
+### Probability
 
-> Finds the most common integer in an array
+    pan-node.uniformPdf;
+    pan-node.uniformCdf;
+   pan-node.normalCdf;
 
-    let pa = new Pan();
-    let myArray3 = [10,9,8,7,6,5,5,5,4,4,3,2,1];
-    pa.mode(myArray3, (result) => {
-        console.log(result);
-    });
-    
-### Pan.popVariance (method)
+### Linear Algebra
 
-> variance of a population array
-
-    let pa = new Pan();
-    let myArray4 = [0,0,5,5];
-    pa.popVariance(myArray4, (result) => {
-        console.log(result);
-    });
-    
-### .sampleVariance (method)
-
-> Get the variance of a sample array
-
-    let pa = new Pan();
-    let myArray5 = [1,2,3,8,7];
-    pa.sampleVariance(myArray5, (result) => {
-        console.log(result);
-    });
-    
-<!-- ### .sDeviation (method)
-
-> Standard deviation of a sample or population
-    
-    var pa = new Pan();
-    var myArray6 = [1,2,3,8,7];
-    var population = pa.popVariance(myArray6);
-    var sample = pa.sampleVariance(myArray6);
-    console.log('population standard deviation');
-    console.log(pa.sDeviation(population));
-    console.log('sample standard deviation');
-    console.log(pa.sDeviation(sample));
-    
-## .add(method)
-
-> Runs through array and adds its elements
-
-    var pa = new Pan();
-    var myArray7 = [1,2,3,8,7];
-    console.log(pa.add(myArray7)); -->
-
-    
+    pan-node.getShape;
+    pan-node.getRow;
+    pan-node.getColumn;
+    pan-node.add;
+    pan-node.subtract;
+    pan-node.dot;
+    pan-node.sumOfSquares;
+    pan-node.magnitude;
+    pan-node.squaredDistance;
+    pan-node.distance;
+    pan-node.multiplyBy;
+    pan-node.dataRange;
+    pan-node.deMean;

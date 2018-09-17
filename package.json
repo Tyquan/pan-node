@@ -1,7 +1,7 @@
 {
   "name": "pan-node",
-  "version": "0.1.2",
-  "description": "A Statistics and Probability library for Data Analysis",
+  "version": "0.3.0",
+  "description": "A Statistics, Probability and Linear Algebra library for Data Analysis",
   "main": "index.js",
   "scripts": {
     "test": "mocha -u bdd -R spec -t 500 --recursive",

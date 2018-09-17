@@ -9,5 +9,6 @@ var arra2 = [[4, 5, 6],
 var arra3 = []; 
 
 //console.log(pa.getColumn(arra, 2));
-
-console.log(Pan.samVariance(arra));
+Pan.mean(arra, (data) => {
+	console.log(data);
+});
