@@ -33,23 +33,23 @@ Add unit tests for any new or changed functionality. Lint and test your code.
     
 ### Statistics
 
-    pan-node.mean;
-    pan-node.median;
-    pan-node.mode;
-    pan-node.popVariance;
-    pan-node.samVariance;
-    pan-node.standardDeviation;
-    pan-node.variance;
+    pan-node.mean; (Mean Average of an array)
+    pan-node.median; (Median Average of an array)
+    pan-node.mode; (Mode Average of an array)
+    pan-node.popVariance; (Population Variance)
+    pan-node.samVariance; (Sample Variance)
+    pan-node.standardDeviation; (Standard Deviation of an array)
+    pan-node.variance; (Variance of an array)
     pan-node.coVariance;
     pan-node.correlation;
 
 ### Probability
 
     pan-node.uniformPdf;
-    pan-node.uniformCdf;
-   pan-node.normalCdf;
+    pan-node.uniformCdf; (Cumulative density function)
+    pan-node.normalCdf;
 
-### Linear Algebra
+### Linear Algebra (Vectors / Matrix)
 
     pan-node.getShape;
     pan-node.getRow;

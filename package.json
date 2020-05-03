@@ -1,6 +1,6 @@
 {
   "name": "pan-node",
-  "version": "0.3.0",
+  "version": "0.9.0",
   "description": "A Statistics, Probability and Linear Algebra library for Data Analysis",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,7 @@
     "statistics",
     "data analysis"
   ],
-  "author": "Tyquan Reddick <tjreddick@gmail.com> (http://www.reddicktech.tech)",
+  "author": "Tyquan Reddick <tjreddick@gmail.com> (https://eezypeezyprint.com)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Tyquan/pan-node/issues"
